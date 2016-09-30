@@ -7,8 +7,10 @@ isbn10.each_with_index {| num, idx | ans += (idx + 1) * num }
 puts "#{ans}"
 c = ans % 11
 puts "#{c}"
-
-
+if c == 10
+	c = "x"
+end
+puts "#{c}"
 # b = isbn10.to_s.split(//).map{|isbn10| isbn10.to_i}
 # puts "#{b}"
 # c = b.first
