@@ -22,6 +22,7 @@
 
 print "Give me a 10 digit ISBN"
 isbn10 = gets.chomp
+isbn10 = isbn10.gsub(/\W\s?/, "")
 d = isbn10.to_s.chars.map(&:to_i)
 puts "#{isbn10}"
 ans = 0

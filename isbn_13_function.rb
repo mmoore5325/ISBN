@@ -1,6 +1,7 @@
 puts "Enter a ISBN-13(12 digit number)."
 
 isbn_13 = gets.chomp
+isbn_13 = isbn_13.gsub(/\W\s?/, "")
 
 puts "#{isbn_13}"
 a = isbn_13.to_s.chars.map(&:to_i)
