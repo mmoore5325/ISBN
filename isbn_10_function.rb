@@ -8,7 +8,7 @@ def isbn10(num)
 	
 	c = i_10[:checkdig] = ans % 11
 		if i_10[:checkdig] == 10
-			i_10[:checkdig] = "x"
+			c = "x"
 		end
 	i_10
 	return {:digits=>d, :isbn=>i, :checkdig=>c}
