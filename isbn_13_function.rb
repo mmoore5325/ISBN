@@ -1,16 +1,20 @@
 def isbn13(num)
 	i_13 = {}
-	i_13{:isbn_13} = num
+	num = num.gsub(/\W\s?/, "")
+	i = i_13[:isbn_13] = num
+	
 	i_13[:digits] = num.to_s.chars.map(&:to_i)
 	ans = 0
 
-	i_13[:digits].each_with_index{|val, idx| idx % 2 == 0 ? value : value * 3}
+	i_13[:digits].each_with_index{|val, idx| idx % 2 == 0 ? val : val * 3}
 	sum = 0
-	i_13[:checkdig] = 10 - (ans % 10)
+	i_13[:digits].each_with_index{|val, idx| sum += val}
+	
+	c = i_13[:checkdig] = 10 - (sum % 10)
 
 	i_13
 
-	return {:isbn_13=>i, :digits=>d, :checkdig=>c}
+	return {:isbn_13=>i, :checkdig=>c}
 end
 
 
