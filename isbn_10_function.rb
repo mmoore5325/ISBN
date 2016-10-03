@@ -23,7 +23,7 @@ end
 
 
 
-# print "Give me your 10 digit ISBN and I will check to see if its valid."
+# print "Give me your 10 digit ISBN and I will check to sete if its valid."
 # isbn10 = gets.chomp
 # isbn10 = isbn10.gsub(/\W\s?/, "")
 # d = isbn10.to_s.chars.map(&:to_i)

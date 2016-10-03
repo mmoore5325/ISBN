@@ -3,7 +3,7 @@ def isbn13(num)
 	num = num.gsub(/\W\s?/, "")					#removes all dashes and whitespace, must be done at beginning.
 	i = i_13[:isbn_13] = num 					#sets hashtag isbn13 to the value passed through the function
 	
-	i_13[:digits] = num.to_s.chars.map(&:to_i) 	#changes string into array
+	d = i_13[:digits] = num.to_s.chars.map(&:to_i) 	#changes string into array
 	ans = 0										#creating and setting variable to 0 for formula on following line.
 
 	i_13[:digits].each_with_index{|val, idx| idx % 2 == 0 ? val : val * 3}   	#this formula multiplies every other element in the array.  The ? : statement means if index % 2 == 0, val stays val, else, val * 3
@@ -14,9 +14,8 @@ def isbn13(num)
 
 	i_13
 
-	return {:isbn_13=>i, :checkdig=>c}	#returns the results to isbnfunctiontest.rb
+	return {:isbn_13=>i, :checkdig=>c, :digits => d}	#returns the results to isbnfunctiontest.rb
 end
-
 
 
 
