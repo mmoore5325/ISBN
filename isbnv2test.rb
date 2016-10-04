@@ -1,7 +1,33 @@
 def valid_isbn?(isbn)
-	# isbn.gsub!(" ", "") # isbn.gsub!() is the same as isbn = isbn.gsub()
-	# isbn.gsub!("-", "")
-	isbn.delete!(" ")
-	isbn.delete!("-")
+	remove_spaces(isbn)
+	remove_dashes(isbn)
+
 	isbn.length == 10 ? true : false #same as if else statement
+end
+
+def valid_isbn_ten_check_sum?(isbn)
+
+	
+def remove_spaces(isbn)
+	isbn.gsub!(" ", "")
+end
+
+def remove_dashes(isbn)
+	isbn.gsub!("-", "")
+end
+
+def validate_isbn(isbn)
+
+	isbn = isbn.to_s.chars.map(&:to_i)
+	checkdigit = isbn.last
+	isbn.pop
+
+	sum = 0
+	isbn.each_with_index do |value, index|
+		sum += (index + 1) * value
+	end
+	
+	checkdigit2 = sum % 11
+	checkdigit == checkdigit2 ? false : true
+
 end
