@@ -5,9 +5,6 @@ def valid_isbn?(isbn)
 	isbn.length == 10 ? true : false #same as if else statement
 end
 
-def valid_isbn_ten_check_sum?(isbn)
-
-	
 def remove_spaces(isbn)
 	isbn.gsub!(" ", "")
 end
@@ -16,7 +13,7 @@ def remove_dashes(isbn)
 	isbn.gsub!("-", "")
 end
 
-def validate_isbn(isbn)
+def validate_isbn?(isbn)
 
 	isbn = isbn.to_s.chars.map(&:to_i)
 	checkdigit = isbn.last
@@ -28,6 +25,6 @@ def validate_isbn(isbn)
 	end
 	
 	checkdigit2 = sum % 11
-	checkdigit == checkdigit2 ? false : true
+	checkdigit == checkdigit2 ? true : false
 
 end
