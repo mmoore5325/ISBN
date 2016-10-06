@@ -38,6 +38,32 @@ class TestIsbn <Minitest::Test
 		isbn = "1234567891234"
 		assert_equal(true, valid_isbn_13?(isbn))
 	end
+
+	def test_empty_string_returns_false_isbn_thirteen
+		isbn = ""
+		assert_equal(false, valid_isbn_13?(isbn))
+	end
+
+	def test_valid_isbn_with_spaces_dashes_returns_true
+		isbn = "123-45 678--9  1-2-3 4"
+		assert_equal(true, valid_isbn_13?(isbn))
+	end
+
+	def test_valid_isbn13_returns_true
+		isbn = "9780470059029"
+		assert_equal(true, validate_isbn_13?(isbn))
+	end
+
+	def test_invalid_isbn13_returns_false
+		isbn = "0780470059029"
+		assert_equal(false, validate_isbn_13?(isbn))
+	end
+
+	def test_valid_isbn13_with_dashes_spaces_returns_true
+		isbn = "978-0 47 00--59 0 2    9"
+		assert_equal(true, validate_isbn_13?(isbn))
+	end
+
 end
 	
 
